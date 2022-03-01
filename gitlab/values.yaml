@@ -2,9 +2,9 @@
 # This is a YAML-formatted file.
 
 global:
-  edition: ee
+  edition: ce
   hosts:
-    domain: example.com
+    domain: gitlab-lab.dev
     https: true
   enterpriseImages:
     # Default repositories used to pull Gitlab Enterprise Edition images.
