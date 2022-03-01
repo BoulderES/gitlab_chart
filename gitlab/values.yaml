@@ -103,10 +103,10 @@ global:
       # secret:
       # key:
       # file:
-    host: postgresql.hostedsomewhere.else
-    port: 123
-    username: gitlab
-    database: gitlabhq_production
+    # host: postgresql.hostedsomewhere.else
+    # port: 123
+    # username: gitlab
+    # database: gitlabhq_production
     # applicationName:
     # preparedStatements: false
 

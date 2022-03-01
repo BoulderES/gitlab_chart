@@ -167,7 +167,11 @@ workhorse:
     maxProcs: 2 # aim for max(2, requested_cpus / 2)
     maxFileSizeBytes: 250000
 
-psql: {}
+psql:
+  host: postgresql.hostedsomewhere.else
+  port: 5432
+  username: gitlab
+  database: gitlabhq_production
   # port: 5432
 
 global:
