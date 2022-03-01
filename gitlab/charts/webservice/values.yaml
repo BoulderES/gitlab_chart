@@ -177,7 +177,7 @@ global:
     create: true
   common:
     labels: {}
-  services:
+  service:
     labels: {}
   serviceAccount:
     enabled: false
