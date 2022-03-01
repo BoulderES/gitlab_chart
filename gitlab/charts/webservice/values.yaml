@@ -186,6 +186,7 @@ global:
     ## Name to be used for serviceAccount, otherwise defaults to chart fullname
     # name:
   ingress:
+    provider: nginx
     enabled:
     annotations: {}
     tls: {}
