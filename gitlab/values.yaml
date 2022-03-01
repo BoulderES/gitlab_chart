@@ -43,5 +43,9 @@ global:
 gitlab-runner:
   enabled: false
 
-gitlab:
-  serviceAccount: false
+serviceAccount:
+  enabled: false
+  create: false
+  annotations: {}
+  ## Name to be used for serviceAccount, otherwise defaults to chart fullname
+  # name:
