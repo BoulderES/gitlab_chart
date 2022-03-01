@@ -171,6 +171,13 @@ psql: {}
   # port: 5432
 
 global:
+  ## Enable deployment to use a serviceAccount
+  serviceAccount:
+    enabled: false
+    create: false
+    annotations: {}
+    ## Name to be used for serviceAccount, otherwise defaults to chart fullname
+    # name:
   ingress:
     enabled:
     annotations: {}
