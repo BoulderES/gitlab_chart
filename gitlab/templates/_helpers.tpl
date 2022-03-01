@@ -1,6 +1,13 @@
 {{/* vim: set filetype=mustache: */}}
 
 {{/*
+Expand the name of the chart.
+*/}}
+{{- define "name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
 Return the version tag used to fetch the GitLab images
 Defaults to using the information from the chart appVersion field, but can be
 overridden using the global.gitlabVersion field in values.
