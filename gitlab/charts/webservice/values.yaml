@@ -186,7 +186,7 @@ global:
     ## Name to be used for serviceAccount, otherwise defaults to chart fullname
     # name:
   ingress:
-    apiVersion:
+    apiVersion: "networking.k8s.io/v1"
     provider: nginx
     enabled:
     annotations: {}
