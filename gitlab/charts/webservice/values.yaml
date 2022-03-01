@@ -171,6 +171,13 @@ psql: {}
   # port: 5432
 
 global:
+  application:
+    create: false
+  common:
+    labels: {}
+  service:
+    labels: {}
+    annotations: {}
   ## Enable deployment to use a serviceAccount
   serviceAccount:
     enabled: false
