@@ -1,6 +1,6 @@
 # Default values for gitlab-chart.
 # This is a YAML-formatted file.
-name: gitlab
+
 global:
   edition: ee
   hosts:
@@ -39,9 +39,6 @@ global:
     knownDecompositions:
       - main
       - ci
-  gitlab:
-    standardLabels: {}
-    commonLabels: {}
 
 gitlab-runner:
   enabled: false
