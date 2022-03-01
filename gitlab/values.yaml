@@ -2,6 +2,12 @@
 # This is a YAML-formatted file.
 
 global:
+  serviceAccount:
+    enabled: false
+    create: false
+    annotations: {}
+    ## Name to be used for serviceAccount, otherwise defaults to chart fullname
+    # name:
   edition: ee
   hosts:
     domain: gitlab-lab.dev
@@ -43,9 +49,3 @@ global:
 gitlab-runner:
   enabled: false
 
-serviceAccount:
-  enabled: false
-  create: false
-  annotations: {}
-  ## Name to be used for serviceAccount, otherwise defaults to chart fullname
-  # name:
