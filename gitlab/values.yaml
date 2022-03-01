@@ -43,3 +43,5 @@ global:
 gitlab-runner:
   enabled: false
 
+gitlab:
+  serviceAccount: false
