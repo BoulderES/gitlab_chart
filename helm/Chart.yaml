@@ -13,11 +13,11 @@ sources:
 maintainers:
 - name: GitLab Inc.
   email: support@gitlab.com
-dependencies:
-  - name: praefect
-    condition: global.praefect.enabled
-  - name: gitlab-pages
-    condition: global.pages.enabled
+#dependencies:
+#  - name: praefect
+#    condition: global.praefect.enabled
+#  - name: gitlab-pages
+#    condition: global.pages.enabled
 
 #dependencies:
 #  - name: jupyterhub
