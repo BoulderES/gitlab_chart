@@ -1,6 +1,6 @@
 # Default values for gitlab-chart.
 # This is a YAML-formatted file.
-
+name: gitlab
 global:
   edition: ee
   hosts:
