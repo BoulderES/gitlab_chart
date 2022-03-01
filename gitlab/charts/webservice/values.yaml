@@ -1,5 +1,3 @@
-name: gitlab
-
 # Default values for webservice.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -173,19 +171,6 @@ psql: {}
   # port: 5432
 
 global:
-  application:
-    create: false
-  common:
-    labels: {}
-  service:
-    labels: {}
-    annotations: {}
-  serviceAccount:
-    enabled: false
-    create: false
-    annotations: {}
-    ## Name to be used for serviceAccount, otherwise defaults to chart fullname
-    # name:
   ingress:
     enabled:
     annotations: {}
@@ -407,13 +392,13 @@ priorityClassName: ""
 #  end of each resource `.metadata.name`, and added as a label to each
 #  resource for tracking.
 #  https://docs.gitlab.com/charts/charts/gitlab/webservice/#deployments
-deployments:
+deployments: {}
   # There must always be at least one, with `xyz.ingress.path: /`
   # unless `ingress.requireBasePath: false`
   #
-  default:
-    ingress:
-      path: /
+  # default:
+  #   ingress:
+  #     path: /
 
 affinity:
   podAntiAffinity:

@@ -6,8 +6,8 @@ storage and GitLab authentication endpoint.
 ## Configuration
 
 In addition to the original configuration that are inherited from the upstream,
-this chart also introduces some additional configuration. See [additional options](../../gitlab_charts/doc/charts/registry/index.md#installation-command-line-options)
+this chart also introduces some additional configuration. See [additional options](../../doc/charts/registry/index.md#installation-command-line-options)
 
 ## Development
 
-For more details, see [development notes](../../gitlab_charts/doc/development/index.md#verifying-registry) 
+For more details, see [development notes](../../doc/development/index.md#verifying-registry) 
