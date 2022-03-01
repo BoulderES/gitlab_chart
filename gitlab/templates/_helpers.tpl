@@ -20,6 +20,16 @@ Handles merging a set of labels for services
 {{- end -}}
 
 {{/*
+Handles merging a set of service annotations
+*/}}
+{{- define "gitlab.serviceAnnotations" -}}
+{{- $allAnnotations := merge (default (dict) (default (dict) .Values.service).annotations) .Values.global.service.annotations -}}
+{{- if $allAnnotations }}
+{{- toYaml $allAnnotations -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Return the version tag used to fetch the GitLab images
 Defaults to using the information from the chart appVersion field, but can be
 overridden using the global.gitlabVersion field in values.
