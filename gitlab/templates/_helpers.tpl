@@ -8,6 +8,18 @@ Expand the name of the chart.
 {{- end -}}
 
 {{/*
+Handles merging a set of labels for services
+*/}}
+{{- define "gitlab.serviceLabels" -}}
+{{- $allLabels := merge (default (dict) .Values.serviceLabels) .Values.global.service.labels -}}
+{{- if $allLabels -}}
+{{-   range $key, $value := $allLabels }}
+{{ $key }}: {{ $value | quote }}
+{{-   end }}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Return the version tag used to fetch the GitLab images
 Defaults to using the information from the chart appVersion field, but can be
 overridden using the global.gitlabVersion field in values.
