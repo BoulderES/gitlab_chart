@@ -171,6 +171,8 @@ psql: {}
   # port: 5432
 
 global:
+  common:
+    labels: {}
   serviceAccount:
     enabled: false
     create: false
