@@ -39,6 +39,9 @@ global:
     knownDecompositions:
       - main
       - ci
+  gitlab:
+    standardLabels: {}
+    commonLabels: {}
 
 gitlab-runner:
   enabled: false
