@@ -2,6 +2,7 @@
 # This is a YAML-formatted file.
 
 global:
+  name: gitlab
   edition: ee
   hosts:
     domain: gitlab-lab.dev
