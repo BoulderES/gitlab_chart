@@ -404,9 +404,9 @@ deployments: {}
   # There must always be at least one, with `xyz.ingress.path: /`
   # unless `ingress.requireBasePath: false`
   #
-  # default:
-  #   ingress:
-  #     path: /
+  default:
+    ingress:
+      path: /
 
 affinity:
   podAntiAffinity:
