@@ -400,7 +400,7 @@ priorityClassName: ""
 #  end of each resource `.metadata.name`, and added as a label to each
 #  resource for tracking.
 #  https://docs.gitlab.com/charts/charts/gitlab/webservice/#deployments
-deployments: {}
+deployments:
   # There must always be at least one, with `xyz.ingress.path: /`
   # unless `ingress.requireBasePath: false`
   #
