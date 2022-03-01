@@ -233,6 +233,8 @@ global:
   webservice: {}
     # workerTimeout: 60
   appConfig:
+    smartcard:
+      enabled: false
     incomingEmail:
       enabled: false
       address:
