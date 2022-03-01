@@ -174,7 +174,7 @@ psql: {}
 
 global:
   application:
-    create: true
+    create: false
   common:
     labels: {}
   service:
