@@ -36,7 +36,7 @@ global:
     labels: {}
 
   ## https://docs.gitlab.com/charts/installation/deployment#deploy-the-community-edition
-  edition: ee
+  edition: ce
 
   ## https://docs.gitlab.com/charts/charts/globals#gitlab-version
   # gitlabVersion:
@@ -48,7 +48,7 @@ global:
     allowClusterRoles: true
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
-    domain: example.com
+    domain: gitlab-lab.dev
     hostSuffix:
     https: true
     externalIP:
@@ -702,10 +702,10 @@ upgradeCheck:
       cpu: 50m
 
 ## Settings to for the Let's Encrypt ACME Issuer
-# certmanager-issuer:
-#   # The email address to register certificates requested from Let's Encrypt.
-#   # Required if using Let's Encrypt.
-#   email: email@example.com
+certmanager-issuer:
+  # The email address to register certificates requested from Let's Encrypt.
+  # Required if using Let's Encrypt.
+  email: email@gitlab-lab.dev
 
 ## Installation & configuration of jetstack/cert-manager
 ## See requirements.yaml for current version
