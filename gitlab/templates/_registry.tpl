@@ -1,50 +1,67 @@
 {{/* ######### Registry related templates */}}
 
 {{/*
-Returns the Registry hostname.
-If the hostname is set in `global.hosts.registry.name`, that will be returned,
-otherwise the hostname will be assembed using `registry` as the prefix, and the `gitlab.assembleHost` function.
+Return the registry certificate secret name
 */}}
-{{- define "gitlab.registry.hostname" -}}
-{{- coalesce .Values.registry.host .Values.global.hosts.registry.name (include "gitlab.assembleHost"  (dict "name" "registry" "context" . )) -}}
+{{- define "gitlab.registry.certificate.secret" -}}
+{{- default (printf "%s-registry-secret" .Release.Name) .Values.global.registry.certificate.secret | quote -}}
 {{- end -}}
 
 {{/*
-Return the registry external hostname
-If the chart registry host is provided, it will use that, otherwise it will fallback
-to the global registry host name.
+Return the registry's httpSecert secret name
 */}}
-{{- define "gitlab.registry.host" -}}
-{{-   if .Values.registry.host -}}
-{{-     .Values.registry.host -}}
-{{-   else -}}
-{{-     template "gitlab.registry.hostname" . -}}
-{{-   end -}}
+{{- define "gitlab.registry.httpSecret.secret" -}}
+{{- default (printf "%s-registry-httpsecret" .Release.Name) .Values.global.registry.httpSecret.secret | quote -}}
 {{- end -}}
 
 {{/*
-Return the registry api hostname
-If the registry api host is provided, it will use that, otherwise it will fallback
-to the service name
+Return the registry's httpSecert secret key
 */}}
-{{- define "gitlab.registry.api.host" -}}
-{{-   if .Values.registry.api.host -}}
-{{-     .Values.registry.api.host -}}
-{{-   else -}}
-{{-     $name := default .Values.global.hosts.registry.serviceName .Values.registry.api.serviceName -}}
-{{-     printf "%s-%s.%s.svc" .Release.Name $name .Release.Namespace -}}
-{{-   end -}}
+{{- define "gitlab.registry.httpSecret.key" -}}
+{{- default "secret" .Values.global.registry.httpSecret.key | quote -}}
 {{- end -}}
 
-{{- define "gitlab.appConfig.registry.configuration" -}}
-registry:
-  enabled: {{ or (not (kindIs "bool" .Values.registry.enabled)) .Values.registry.enabled }}
-  host: {{ template "gitlab.registry.host" . }}
-  {{- if .Values.registry.port }}
-  port: {{ .Values.registry.port }}
-  {{- end }}
-  api_url: {{ default "http" .Values.registry.api.protocol }}://{{ template "gitlab.registry.api.host" . }}:{{ default 5000 .Values.registry.api.port }}
-  key: /etc/gitlab/registry/gitlab-registry.key
-  issuer: {{ .Values.registry.tokenIssuer }}
-  notification_secret: <%= YAML.load_file("/etc/gitlab/registry/notificationSecret").flatten.first %>
-{{- end -}}{{/* "gitlab.appConfig.registry.configuration" */}}
+{{/*
+Return the registry's notification secret name
+*/}}
+{{- define "gitlab.registry.notificationSecret.secret" -}}
+{{- default (printf "%s-registry-notification" .Release.Name) .Values.global.registry.notificationSecret.secret | quote -}}
+{{- end -}}
+
+{{/*
+Return the registry's notification secret key
+*/}}
+{{- define "gitlab.registry.notificationSecret.key" -}}
+{{- default "secret" .Values.global.registry.notificationSecret.key | quote -}}
+{{- end -}}
+
+{{/*
+Return the registry's notification mount
+*/}}
+{{- define "gitlab.registry.notificationSecret.mount" -}}
+- secret:
+    name: {{ template "gitlab.registry.notificationSecret.secret" $ }}
+    items:
+      - key: {{ template "gitlab.registry.notificationSecret.key" $ }}
+        path: registry/notificationSecret
+{{- end -}}
+
+{{/*
+When Geo + Container Registry syncing enabled, adds the following notifier
+*/}}
+{{- define "global.geo.registry.syncNotifier" -}}
+{{- if and .Values.global.geo.enabled .Values.global.geo.registry.replication.enabled -}}
+endpoints:
+  - name: geo_event
+    url: https://{{ include "gitlab.gitlab.hostname" . }}/api/v4/container_registry_event/events
+    timeout: 2s
+    threshold: 5
+    backoff: 1s
+    headers:
+      Authorization:
+        secret: {{ template "gitlab.registry.notificationSecret.secret" $ }}
+        key: {{ template "gitlab.registry.notificationSecret.key" $ }}
+{{- else -}}
+endpoints: []
+{{- end -}}
+{{- end -}}

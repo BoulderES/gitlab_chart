@@ -1,108 +1,57 @@
-{{/* ######## Geo related templates */}}
-{{/*
-Returns "secondary" if geo.enabled & geo.role: secondary
-*/}}
-{{- define "gitlab.geo.secondary" -}}
-{{- with .Values.global.geo -}}
-{{- if and (eq true (default false .enabled)) ( eq "secondary" (default "primary" (lower .role))) -}}
-secondary
-{{- end -}}
-{{- end -}}
-{{- end -}}
+{{/* ######## Templates related to Geo functionality */}}
 
-{{- define "gitlab.geo.config" -}}
-{{- if .Values.global.geo.enabled -}}
-geo:
-  node_name: {{ default "" .Values.global.geo.nodeName }}
-  registry_replication:
-    enabled: {{ eq true (default false .Values.global.geo.registry.replication.enabled) }}
-    primary_api_url: {{ .Values.global.geo.registry.replication.primaryApiUrl | quote }}
+{{/*
+Return the Geo DB hostname
+*/}}
+{{- define "gitlab.geo.psql.host" -}}
+{{- if .Values.global.geo.psql.host -}}
+{{-   .Values.global.geo.psql.host | quote -}}
+{{- else -}}
+{{-   printf "%s-%s" .Release.Name "geo-postgresql" -}}
 {{- end -}}
 {{- end -}}
 
 {{/*
-Returns the contents of the `database_geo.yml` blob
-
-As the Rails application checks for the existance of `database_geo.yml`,
-this should not be included _at all_ unless `gitlab.geo.secondary`. As
-such, we don't check that state here.
+Return the Geo database name
 */}}
-{{- define "gitlab.geo.database.yml" -}}
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: {{ template "gitlab.geo.psql.database" . }}
-  username: {{ template "gitlab.geo.psql.username" . }}
-  password: <%= File.read("/etc/gitlab/postgres/geo-psql-password").strip.to_json %>
-  host: {{ template "gitlab.geo.psql.host" . }}
-  port: {{ template "gitlab.geo.psql.port" . }}
-  # load_balancing:
-  #   hosts:
-  #     - host1.example.com
-  #     - host2.example.com
-  {{- include "gitlab.geo.psql.ssl.config" . | nindent 2 }}
+{{- define "gitlab.geo.psql.database" -}}
+{{- coalesce .Values.global.geo.psql.database "gitlabhq_geo_production" | quote -}}
 {{- end -}}
 
 {{/*
-Returns parts for a Gitlab configuration to setup a mutual TLS connection
-with the Geo PostgreSQL database.
-
-Consumed as part of "gitlab.geo.database.yml", no check of `global.geo.secondary`
+Return the Geo database username
+If the postgresql username is provided, it will use that, otherwise it will fallback
+to "gitlab_replicator" default
 */}}
-{{- define "gitlab.geo.psql.ssl.config" -}}
-{{- if .Values.global.geo.psql.ssl }}
-sslmode: verify-ca
-sslrootcert: '/etc/gitlab/postgres/ssl/geo-server-ca.pem'
-sslcert: '/etc/gitlab/postgres/ssl/geo-client-certificate.pem'
-sslkey: '/etc/gitlab/postgres/ssl/geo-client-key.pem'
-{{- end -}}
+{{- define "gitlab.geo.psql.username" -}}
+{{- coalesce .Values.global.geo.psql.username "gitlab_geo" -}}
 {{- end -}}
 
 {{/*
-Returns volume definition of a secret containing information required for
-a mutual TLS connection to the Geo Secondary DB.
+Return the Geo database port
+If the postgresql port is provided, it will use that, otherwise it will fallback
+to 5432 default
 */}}
-{{- define "gitlab.geo.psql.ssl.volume" -}}
-{{- if and ( include "gitlab.geo.secondary" $ ) .Values.global.geo.psql.ssl }}
-- name: geo-postgresql-ssl-secrets
-  projected:
-    defaultMode: 400
-    sources:
-    - secret:
-        name: {{ .Values.global.geo.psql.ssl.secret | required "Missing required secret containing SQL SSL certificates and keys. Make sure to set `global.geo.psql.ssl.secret`" }}
-        items:
-          - key: {{ .Values.global.geo.psql.ssl.serverCA | required "Missing required key name of SQL server certificate. Make sure to set `global.geo.psql.ssl.serverCA`" }}
-            path: geo-server-ca.pem
-          - key: {{ .Values.global.geo.psql.ssl.clientCertificate | required "Missing required key name of SQL client certificate. Make sure to set `global.geo.psql.ssl.clientCertificate`" }}
-            path: geo-client-certificate.pem
-          - key: {{ .Values.global.geo.psql.ssl.clientKey | required "Missing required key name of SQL client key file. Make sure to set `global.geo.psql.ssl.clientKey`" }}
-            path: geo-client-key.pem
-{{- end -}}
+{{- define "gitlab.geo.psql.port" -}}
+{{- coalesce .Values.global.geo.psql.port 5432 -}}
 {{- end -}}
 
 {{/*
-Returns mount definition for the volume mount definition above.
+Return the Geo database secret name
+Defaults to a release-based name and falls back to .Values.global.geo.psql.secretName
+  when using an external postegresql
 */}}
-{{- define "gitlab.geo.psql.ssl.volumeMount" -}}
-{{- if and ( include "gitlab.geo.secondary" $ ) .Values.global.geo.psql.ssl }}
-- name: geo-postgresql-ssl-secrets
-  mountPath: '/etc/postgresql/geo/ssl/'
-  readOnly: true
-{{- end -}}
+{{- define "gitlab.geo.psql.password.secret" -}}
+{{- default (printf "%s-%s" .Release.Name "geo-postgresql-password") .Values.global.geo.psql.password.secret | quote -}}
 {{- end -}}
 
+{{/* NOTE: SKIPPED `postgresql.secretName` */}}
+
 {{/*
-Returns a shell script snippet, which extends the script of a configure
-container to copy the mutual TLS files to the proper location. Further
-it sets the permissions correctly.
+Return the name of the key in a secret that contains the postgres password
+Uses `postgresql-password` to match upstream postgresql chart when not using an
+  external postegresql
 */}}
-{{- define "gitlab.geo.psql.ssl.initScript" -}}
-{{- if and ( include "gitlab.geo.secondary" $ ) .Values.global.geo.psql.ssl }}
-if [ -d /etc/postgresql/geo/ssl ]; then
-  mkdir -p /${secret_dir}/postgres/ssl
-  cp -v -r -L /etc/postgresql/geo/ssl/* /${secret_dir}/postgres/ssl/
-  chmod 600 /${secret_dir}/postgres/ssl/*
-  chmod 700 /${secret_dir}/postgres/ssl
-fi
-{{- end -}}
+{{- define "gitlab.geo.psql.password.key" -}}
+{{- default "postgresql-password" .Values.global.geo.psql.password.key | quote -}}
 {{- end -}}

@@ -1,27 +1,8 @@
 {{/* ######### Minio related templates */}}
 
 {{/*
-Return the minio service endpoint
+Return the minio credentials secret
 */}}
-{{- define "gitlab.minio.endpoint" -}}
-{{- $name := default "minio-svc" .Values.minio.serviceName -}}
-{{- $port := default 9000 .Values.minio.port | int -}}
-{{- printf "http://%s-%s.%s.svc:%d" .Release.Name $name .Release.Namespace $port -}}
+{{- define "gitlab.minio.credentials.secret" -}}
+{{- default (printf "%s-minio-secret" .Release.Name) .Values.global.minio.credentials.secret | quote -}}
 {{- end -}}
-
-{{/*
-Minio has it's own secret mounting procedure, so it receives more special attention compared to normal objectStorage secret mounting.
-*/}}
-{{- define "gitlab.minio.mountSecrets" -}}
-# mount secret for minio
-{{- if .Values.global.minio.enabled }}
-- secret:
-    name: {{ template "gitlab.minio.credentials.secret" . }}
-    items:
-      - key: accesskey
-        path: minio/accesskey
-      - key: secretkey
-        path: minio/secretkey
-{{- end -}}
-{{- end -}}{{/* "gitlab.minio.mountSecrets" */}}
-
