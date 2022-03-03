@@ -50,7 +50,7 @@ global:
   hosts:
     domain: gitlab-lab.dev
     hostSuffix:
-    https: true
+    https: false
     externalIP:
     ssh: ~
     gitlab: {}
@@ -989,7 +989,7 @@ shared-secrets:
 gitlab-runner:
   install: false
   rbac:
-    create: false
+    create: true
   runners:
     locked: false
     config: |
