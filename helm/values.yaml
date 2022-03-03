@@ -114,8 +114,8 @@ global:
   redis:
     password:
       enabled: true
-      # secret:
-      # key:
+      secret:
+      key:
     # host: redis.hostedsomewhere.else
     # port: 6379
     # sentinels:
@@ -947,8 +947,8 @@ postgresql:
 ## Installation & configuration charts/registry
 ## https://docs.gitlab.com/charts/architecture/decisions#registry
 ## https://docs.gitlab.com/charts/charts/registry/
-# registry:
-#   enabled: false
+registry:
+  enabled: false
 
 
 ## Automatic shared secret generation
@@ -987,7 +987,7 @@ shared-secrets:
 ## Installation & configuration of gitlab/gitlab-runner
 ## See requirements.yaml for current version
 gitlab-runner:
-  install: true
+  install: false
   rbac:
     create: true
   runners:
