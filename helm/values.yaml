@@ -50,7 +50,7 @@ global:
   hosts:
     domain: gitlab-lab.dev
     hostSuffix:
-    https: false
+    https: true
     externalIP:
     ssh: ~
     gitlab: {}
