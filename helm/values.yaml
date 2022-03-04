@@ -70,7 +70,7 @@ global:
     annotations: {}
     enabled: true
     tls:
-      enabled: true
+      enabled: false
     #   secretName:
     path: /
     pathType: Prefix
