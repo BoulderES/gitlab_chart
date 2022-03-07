@@ -98,17 +98,17 @@ global:
     keepalivesInterval:
     keepalivesCount:
     tcpUserTimeout:
-    password: {}
-      # useSecret:
-      # secret:
-      # key:
-      # file:
-    # host: postgresql.hostedsomewhere.else
-    # port: 123
-    # username: gitlab
-    # database: gitlabhq_production
-    # applicationName:
-    # preparedStatements: false
+    password:
+      useSecret: true
+      secret: gitlab-postgresql-password
+      key: postgresql-password
+      file:
+    host: gitlab-postgresql.gitlab
+    port: 5432
+    username: gitlab
+    database: gitlabhq_production
+    applicationName:
+    preparedStatements: false
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-redis-settings
   redis:
