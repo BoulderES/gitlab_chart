@@ -923,10 +923,9 @@ redis:
 ## See requirements.yaml for current version
 postgresql:
   postgresqlUsername: postgres
-  createSecret: true
   password: ch4ng3m3
   # This just needs to be set. It will use a second entry in existingSecret for postgresql-postgres-password
-  postgresqlPostgresPassword: bogus
+#  postgresqlPostgresPassword: bogus
   install: true
   postgresqlDatabase: gitlabhq_production
   image:
