@@ -42,16 +42,16 @@ psql: {}
   # port: 5432
 
 global:
-  psql: {}
-    # host: '0.0.0.0'
-    # port: '5432'
-    # database: 'gitlabhq_production'
-    # username: 'gitlab'
+  psql:
+    host: gitlab-postgresql.gitlab
+    port: 5432
+    database: 'gitlabhq_production'
+    username: 'gitlab'
     # applicationName:
     # preparedStatements: false
-    # password:
-    #   secret: gitlab-postgres
-    #   key: psql-password
+    password:
+      secret: gitlab-postgresql-password
+      key: postgresql-postgres-password
     # ssl:
     #   secret: gitlab-ssl-secret
     #   clientKey: client-key.pem
