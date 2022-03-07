@@ -46,7 +46,7 @@ global:
     host: gitlab-postgresql.gitlab
     port: 5432
     database: 'gitlabhq_production'
-    username: 'gitlab'
+    username: 'postgres'
     # applicationName:
     # preparedStatements: false
     password:
