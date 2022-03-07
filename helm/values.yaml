@@ -1069,8 +1069,13 @@ gitlab:
       matchLabels:
         app: 'gitaly'
 ## https://docs.gitlab.com/charts/charts/gitlab/migrations
-#   migrations:
-#     enabled: false
+  migrations:
+    enabled: true
+    psql:
+      host: postgres-postgresql-ha-pgpool.postgres
+      port: 5432
+      database: 'gitlabhq_production'
+      username: 'gitlab'
 ## https://docs.gitlab.com/charts/charts/gitlab/webservice
 #   webservice:
 #     enabled: false
