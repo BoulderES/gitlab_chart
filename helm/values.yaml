@@ -114,10 +114,10 @@ global:
   redis:
     password:
       enabled: true
-      secret:
-      key:
-    # host: redis.hostedsomewhere.else
-    # port: 6379
+      secret: gitlab-redis-secret
+      key: secret
+    host: gitlab-redis-master.gitlab
+    port: 6379
     # sentinels:
     #   - host:
     #     port:
