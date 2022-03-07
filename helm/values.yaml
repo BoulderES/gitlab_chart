@@ -98,14 +98,14 @@ global:
     keepalivesInterval:
     keepalivesCount:
     tcpUserTimeout:
-    password:
-      useSecret: true
-      secret: gitlab-postgresql-password
-      key: postgresql-postgres-password
-      file:
-    host: gitlab-postgresql.gitlab
+    password: "ch4ng3m3"
+#      useSecret: true
+#      secret: gitlab-postgresql-password
+#      key: postgresql-postgres-password
+#      file:
+    host: postgres-postgresql-ha-pgpool.postgres
     port: 5432
-    username: postgres
+    username: postgres_external
     database: gitlabhq_production
     applicationName:
     preparedStatements: false
@@ -1069,18 +1069,8 @@ gitlab:
       matchLabels:
         app: 'gitaly'
 ## https://docs.gitlab.com/charts/charts/gitlab/migrations
-  migrations:
-    enabled: true
-    psql:
-      host: gitlab-postgresql.gitlab
-      serviceName: pgbouncer
-      port: 5432
-      database: gitlabhq_production
-      username: postgres
-      preparedStatements: false
-      password:
-        secret: gitlab-postgresql-password
-        key: postgresql-postgres-password
+#   migrations:
+#     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/webservice
 #   webservice:
 #     enabled: false
