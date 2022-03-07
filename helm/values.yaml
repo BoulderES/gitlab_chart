@@ -1076,7 +1076,6 @@ gitlab:
       port: 5432
       database: 'gitlabhq_production'
       username: 'gitlab'
-      password: 'ch4ng3m3'
 ## https://docs.gitlab.com/charts/charts/gitlab/webservice
 #   webservice:
 #     enabled: false
