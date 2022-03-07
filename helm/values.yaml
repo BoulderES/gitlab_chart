@@ -103,9 +103,9 @@ global:
       secret: gitlab-postgresql-password
       key: postgresql-postgres-password
       file:
-    host: postgres-postgresql-ha-pgpool.postgres
+    host: gitlab-postgresql.gitlab
     port: 5432
-    username: postgres_external
+    username: postgres
     database: gitlabhq_production
     applicationName:
     preparedStatements: false
