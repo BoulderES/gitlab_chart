@@ -923,7 +923,6 @@ redis:
 ## See requirements.yaml for current version
 postgresql:
   postgresqlUsername: postgres
-  password: ch4ng3m3
   # This just needs to be set. It will use a second entry in existingSecret for postgresql-postgres-password
   postgresqlPostgresPassword: bogus
   install: true
@@ -1070,13 +1069,8 @@ gitlab:
       matchLabels:
         app: 'gitaly'
 ## https://docs.gitlab.com/charts/charts/gitlab/migrations
-  migrations:
-    enabled: true
-    psql:
-      host: postgres-postgresql-ha-pgpool.postgres
-      port: 5432
-      database: 'gitlabhq_production'
-      username: 'gitlab'
+#   migrations:
+#     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/webservice
 #   webservice:
 #     enabled: false
