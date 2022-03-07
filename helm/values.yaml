@@ -1070,7 +1070,7 @@ gitlab:
         app: 'gitaly'
 ## https://docs.gitlab.com/charts/charts/gitlab/migrations
   migrations:
-    enabled: false
+    enabled: true
     psql:
       host: gitlab-postgresql.gitlab
       serviceName: pgbouncer
