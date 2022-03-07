@@ -104,7 +104,7 @@ global:
       key: postgresql-postgres-password
       file:
     host: gitlab-postgresql.gitlab
-    port: 5432
+    port: 5433
     username: postgres
     database: gitlabhq_production
     applicationName:
