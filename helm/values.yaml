@@ -101,11 +101,11 @@ global:
     password:
       useSecret: true
       secret: gitlab-postgresql-password
-      key: postgresql-password
+      key: postgresql-postgres-password
       file:
     host: gitlab-postgresql.gitlab
     port: 5432
-    username: gitlab
+    username: postgres
     database: gitlabhq_production
     applicationName:
     preparedStatements: false
@@ -922,7 +922,7 @@ redis:
 ## Installation & configuration of stable/prostgresql
 ## See requirements.yaml for current version
 postgresql:
-  postgresqlUsername: gitlab
+  postgresqlUsername: postgres
   # This just needs to be set. It will use a second entry in existingSecret for postgresql-postgres-password
   postgresqlPostgresPassword: bogus
   install: true
