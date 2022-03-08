@@ -100,7 +100,7 @@ global:
     tcpUserTimeout:
     password:
       useSecret: true
-      secret: gitlab-postgresql-password
+      secret: gitlab-postgresql
       key: postgresql-postgres-password
       file:
     host: gitlab-postgresql.gitlab
@@ -117,8 +117,8 @@ global:
     redisPassword: ch4ng3m3
     password:
       enabled: true
-      secret: gitlab-redis-secret
-      key: secret
+      secret: gitlab-redis
+      key: redis-password
     host: gitlab-redis-master.gitlab
     port: 6379
     # sentinels:
@@ -717,7 +717,7 @@ certmanager:
   nameOverride: certmanager
   # Install cert-manager chart. Set to false if you already have cert-manager
   # installed or if you are not using cert-manager.
-  install: true
+  install: false
   # Other cert-manager configurations from upstream
   # See https://github.com/jetstack/cert-manager/blob/master/deploy/charts/cert-manager/README#configuration
   rbac:
