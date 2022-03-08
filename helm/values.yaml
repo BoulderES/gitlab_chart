@@ -926,6 +926,7 @@ postgresql:
   postgresqlUsername: gitlab
   # This just needs to be set. It will use a second entry in existingSecret for postgresql-postgres-password
   postgresqlPostgresPassword: ch4ng3m3
+  postgresqlPassword: ch4ng3m3
   install: true
   postgresqlDatabase: gitlabhq_production
   image:
