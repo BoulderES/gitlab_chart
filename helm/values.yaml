@@ -69,8 +69,8 @@ global:
     class: nginx
     annotations: {}
     enabled: true
-    tls:
-      enabled: false
+    tls: {}
+    #   enabled: true
     #   secretName:
     path: /
     pathType: Prefix
@@ -922,7 +922,7 @@ redis:
 ## Installation & configuration of stable/prostgresql
 ## See requirements.yaml for current version
 postgresql:
-  postgresqlUsername: postgres
+  postgresqlUsername: gitlab
   # This just needs to be set. It will use a second entry in existingSecret for postgresql-postgres-password
   postgresqlPostgresPassword: bogus
   install: true
