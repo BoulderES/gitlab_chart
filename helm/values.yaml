@@ -911,7 +911,7 @@ prometheus:
 ## https://docs.gitlab.com/charts/installation/deployment.html#redis
 redis:
   install: true
-  existingSecret: gitlab-redis-secret
+#  existingSecret: gitlab-redis-secret
   existingSecretKey: redis-password
   usePasswordFile: true
   cluster:
@@ -924,7 +924,7 @@ redis:
 postgresql:
   postgresqlUsername: gitlab
   # This just needs to be set. It will use a second entry in existingSecret for postgresql-postgres-password
-  postgresqlPostgresPassword: bogus
+  postgresqlPostgresPassword: ch4ng3m3
   install: true
   postgresqlDatabase: gitlabhq_production
   image:
