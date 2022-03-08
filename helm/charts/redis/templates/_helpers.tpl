@@ -223,8 +223,8 @@ Get the password key to be retrieved from Redis secret.
 Return Redis password
 */}}
 {{- define "redis.password" -}}
-{{- if not (empty .Values.redis.password) }}
-    {{- .Values.redis.password -}}
+{{- if not (empty .Values.global.redis.redisPassword) }}
+    {{- .Values.global.redis.redisPassword -}}
 {{- else if not (empty .Values.password) -}}
     {{- .Values.password -}}
 {{- else -}}
