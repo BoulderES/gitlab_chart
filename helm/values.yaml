@@ -112,10 +112,12 @@ global:
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-redis-settings
   redis:
-    password:
-      enabled: true
-      secret: gitlab-redis-secret
-      key: secret
+    # cluster:
+    #   enabled: true
+    # password:
+    #   enabled: true
+    #   secret: gitlab-redis-secret
+    #   key: secret
     host: gitlab-redis-master.gitlab
     port: 6379
     # sentinels:
