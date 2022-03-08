@@ -912,6 +912,7 @@ prometheus:
 redis:
   install: true
 #  existingSecret: gitlab-redis-secret
+  password: ch4ng3m3
   existingSecretKey: redis-password
   usePasswordFile: true
   cluster:
