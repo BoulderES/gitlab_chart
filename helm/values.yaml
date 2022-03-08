@@ -114,6 +114,7 @@ global:
   redis:
 #    cluster:
 #      enabled: true
+    redisPassword: ch4ng3m3
     password:
       enabled: true
       secret: gitlab-redis-secret
@@ -914,7 +915,6 @@ prometheus:
 redis:
   install: true
 #  existingSecret: gitlab-redis-secret
-  redisPassword: ch4ng3m3
   existingSecretKey: redis-password
   usePasswordFile: true
   cluster:
