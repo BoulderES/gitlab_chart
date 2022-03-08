@@ -112,8 +112,8 @@ global:
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-redis-settings
   redis:
-    cluster:
-      enabled: true
+#    cluster:
+#      enabled: true
     password:
       enabled: true
       secret: gitlab-redis-secret
