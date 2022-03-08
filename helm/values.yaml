@@ -930,7 +930,7 @@ postgresql:
   image:
     tag: 12.7.0
   usePasswordFile: true
-  existingSecret: 'bogus'
+  # existingSecret: 'bogus'
   initdbScriptsConfigMap: 'bogus'
   master:
     extraVolumeMounts:
