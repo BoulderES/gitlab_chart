@@ -706,7 +706,7 @@ upgradeCheck:
 certmanager-issuer:
   # The email address to register certificates requested from Let's Encrypt.
   # Required if using Let's Encrypt.
-  email: email@gitlab-lab.dev
+  email: email@public-digital.lab
 
 ## Installation & configuration of jetstack/cert-manager
 ## See requirements.yaml for current version
