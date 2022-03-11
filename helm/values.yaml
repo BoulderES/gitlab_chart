@@ -48,7 +48,7 @@ global:
     allowClusterRoles: true
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
-    domain: public-digital.lab
+    domain: public-digital.lab.myddns.me
     hostSuffix:
     https: true
     externalIP:
@@ -706,7 +706,7 @@ upgradeCheck:
 certmanager-issuer:
   # The email address to register certificates requested from Let's Encrypt.
   # Required if using Let's Encrypt.
-  email: email@public-digital.lab
+  email: email@public-digital.lab.myddns.me
 
 ## Installation & configuration of jetstack/cert-manager
 ## See requirements.yaml for current version
