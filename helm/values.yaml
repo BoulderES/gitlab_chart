@@ -50,7 +50,7 @@ global:
   hosts:
     domain: public-digital.lab.myddns.me
     hostSuffix:
-    https: true
+    https: false
     externalIP:
     ssh: ~
     gitlab: {}
