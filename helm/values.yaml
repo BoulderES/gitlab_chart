@@ -652,6 +652,8 @@ global:
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-webservice
   webservice:
+    minReplicas: 1
+    maxReplicas: 2
     workerTimeout: 60
 
   ## https://docs.gitlab.com/charts/charts/globals#custom-certificate-authorities
