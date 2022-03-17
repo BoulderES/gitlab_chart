@@ -1081,15 +1081,18 @@ gitlab:
   webservice:
     minReplicas: 1
     maxReplicas: 2
-
 #     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/sidekiq
-#   sidekiq:
+  sidekiq:
+    minReplicas: 1
+    maxReplicas: 2
 #     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/gitaly
 #   gitaly:
 ## https://docs.gitlab.com/charts/charts/gitlab/gitlab-shell
-#   gitlab-shell:
+  gitlab-shell:
+    minReplicas: 1
+    maxReplicas: 2
 #     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/gitlab-grafana
 #   gitlab-grafana:
