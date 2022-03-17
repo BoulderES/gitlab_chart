@@ -429,6 +429,7 @@ global:
         # icon: '<custom_provider_icon>'
         args:
         - name: 'openid_connect'
+          secret: gitlab-test-oauth2
           scope: ['openid','profile','email']
           response_type: 'code'
           issuer: 'your_oidc_url'
@@ -441,8 +442,8 @@ global:
             secret: 'your_oidc_client_secret'
             redirect_uri: 'public-digital.lab.myddns.me/users/auth/openid_connect/callback'
 
-      - secret: gitlab-test-oauth2
-        key: provider
+      # - secret: gitlab-google-oauth2
+      #   key: provider
     ## https://docs.gitlab.com/charts/charts/globals#configure-appconfig-settings
     sentry:
       enabled: false
