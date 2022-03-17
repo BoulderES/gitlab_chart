@@ -431,14 +431,14 @@ global:
         - name: 'openid_connect'
           scope: ['openid','profile','email']
           response_type: 'code'
-          issuer: '<your_oidc_url>'
+          issuer: 'your_oidc_url'
           discovery: true
           client_auth_method: 'query'
           uid_field: 'preferred_username'
           send_scope_to_token_endpoint: false
           client_options:
-            identifier: '<your_oidc_client_id>'
-            secret: '<your_oidc_client_secret>'
+            identifier: 'your_oidc_client_id'
+            secret: 'your_oidc_client_secret'
             redirect_uri: 'public-digital.lab.myddns.me/users/auth/openid_connect/callback'
 
       # - secret: gitlab-google-oauth2
