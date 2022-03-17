@@ -441,8 +441,8 @@ global:
             secret: 'your_oidc_client_secret'
             redirect_uri: 'public-digital.lab.myddns.me/users/auth/openid_connect/callback'
 
-      # - secret: gitlab-google-oauth2
-      #   key: provider
+      - secret: gitlab-test-oauth2
+        key: provider
     ## https://docs.gitlab.com/charts/charts/globals#configure-appconfig-settings
     sentry:
       enabled: false
