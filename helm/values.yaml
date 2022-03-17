@@ -419,7 +419,7 @@ global:
       allowSingleSignOn: ['saml']
       blockAutoCreatedUsers: false
       autoLinkLdapUser: false
-      autoLinkSamlUser: false
+      autoLinkSamlUser: true
       autoLinkUser: []
       externalProviders: []
       allowBypassTwoFactor: []
