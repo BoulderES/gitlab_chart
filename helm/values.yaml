@@ -416,7 +416,7 @@ global:
       autoSignInWithProvider:
       syncProfileFromProvider: []
       syncProfileAttributes: ['email']
-      allowSingleSignOn: true #['saml','ldap']
+      allowSingleSignOn: true
       blockAutoCreatedUsers: false
       autoLinkLdapUser: true
       autoLinkSamlUser: true
@@ -1079,7 +1079,6 @@ gitlab:
 #     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/webservice
   webservice:
-    hpa: false
     revisionHistoryLimit: 0
     minReplicas: 1
     maxReplicas: 2
