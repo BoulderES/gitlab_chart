@@ -24,8 +24,6 @@
 ## The global properties are used to configure multiple charts at once.
 ## https://docs.gitlab.com/charts/charts/globals
 global:
-  minReplicas: 1
-  maxReplicas: 2
   common:
     labels: {}
 
@@ -78,6 +76,8 @@ global:
     pathType: Prefix
 
   gitlab:
+    minReplicas: 1
+    maxReplicas: 2
     ## Enterprise license for this GitLab installation
     ## Secret created according to https://docs.gitlab.com/charts/installation/secrets#initial-enterprise-license
     ## If allowing shared-secrets generation, this is OPTIONAL.
