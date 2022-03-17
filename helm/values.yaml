@@ -1079,7 +1079,7 @@ gitlab:
 #     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/webservice
   webservice:
-    hpa: []
+    hpa: false
     revisionHistoryLimit: 0
     minReplicas: 1
     maxReplicas: 2
