@@ -417,7 +417,7 @@ global:
       syncProfileFromProvider: []
       syncProfileAttributes: ['email']
       allowSingleSignOn: ['saml']
-      blockAutoCreatedUsers: true
+      blockAutoCreatedUsers: false
       autoLinkLdapUser: false
       autoLinkSamlUser: false
       autoLinkUser: []
@@ -788,7 +788,6 @@ nginx-ingress:
 ## Installation & configuration of stable/prometheus
 ## See requirements.yaml for current version
 prometheus:
-  revisionHistoryLimit: 0
   install: true
   rbac:
     create: true
