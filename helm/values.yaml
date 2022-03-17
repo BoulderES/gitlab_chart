@@ -24,7 +24,6 @@
 ## The global properties are used to configure multiple charts at once.
 ## https://docs.gitlab.com/charts/charts/globals
 global:
-  revisionHistoryLimit: 0
   common:
     labels: {}
 
@@ -1080,11 +1079,13 @@ gitlab:
 #     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/webservice
   webservice:
+    revisionHistoryLimit: 0
     minReplicas: 1
     maxReplicas: 2
 #     enabled: false
 ## https://docs.gitlab.com/charts/charts/gitlab/sidekiq
   sidekiq:
+    revisionHistoryLimit: 0
     minReplicas: 1
     maxReplicas: 2
 #     enabled: false
@@ -1092,6 +1093,7 @@ gitlab:
 #   gitaly:
 ## https://docs.gitlab.com/charts/charts/gitlab/gitlab-shell
   gitlab-shell:
+    revisionHistoryLimit: 0
     minReplicas: 1
     maxReplicas: 2
 #     enabled: false
