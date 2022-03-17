@@ -418,7 +418,7 @@ global:
       syncProfileAttributes: ['email']
       allowSingleSignOn: ['saml']
       blockAutoCreatedUsers: false
-      autoLinkLdapUser: false
+      autoLinkLdapUser: true
       autoLinkSamlUser: true
       autoLinkUser: []
       externalProviders: []
