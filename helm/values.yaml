@@ -788,6 +788,7 @@ nginx-ingress:
 ## Installation & configuration of stable/prometheus
 ## See requirements.yaml for current version
 prometheus:
+  revisionHistoryLimit: 0
   install: true
   rbac:
     create: true
