@@ -416,7 +416,7 @@ global:
       autoSignInWithProvider:
       syncProfileFromProvider: []
       syncProfileAttributes: ['email']
-      allowSingleSignOn: ['saml']
+      allowSingleSignOn: true #['saml','ldap']
       blockAutoCreatedUsers: false
       autoLinkLdapUser: true
       autoLinkSamlUser: true
