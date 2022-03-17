@@ -24,6 +24,8 @@
 ## The global properties are used to configure multiple charts at once.
 ## https://docs.gitlab.com/charts/charts/globals
 global:
+  minReplicas: 1
+  maxReplicas: 2
   common:
     labels: {}
 
