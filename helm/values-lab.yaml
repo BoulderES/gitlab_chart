@@ -57,10 +57,6 @@ global:
 upgradeCheck:
   enabled: false
 
-## Settings to for the Let's Encrypt ACME Issuer
-certmanager-issuer:
-  email: email@public-digital.lab.myddns.me
-
 ## Installation & configuration of jetstack/cert-manager
 ## See requirements.yaml for current version
 certmanager:
