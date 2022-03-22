@@ -103,8 +103,19 @@ gitlab-runner:
 
 prometheus:
   server:
-    ingress:
-      enabled: true
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 500m
+        memory: 512Mi
+
+grafana:
+  ingress:
+    enabled: true
+    hosts:
+      - grafana-gitlab.lab.myddns.me
 
 gitlab:
   toolbox:
