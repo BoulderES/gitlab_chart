@@ -10,7 +10,7 @@ global:
 
   psql:
     password:
-      useSecret: false
+      useSecret: true
       secret: gitlab-postgresql
       key: postgresql-postgres-password
       file:
@@ -23,7 +23,7 @@ global:
 
   redis:
     password:
-      enabled: false
+      enabled: true
       secret: gitlab-redis
       key: redis-password
     host: gitlab-redis-master.gitlab
