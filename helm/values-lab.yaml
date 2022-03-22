@@ -109,13 +109,13 @@ gitlab:
         app: 'gitaly'
 
   webservice:
-    minReplicas: 1
+    minReplicas: 2
     maxReplicas: 2
 
   sidekiq:
-    minReplicas: 1
+    minReplicas: 2
     maxReplicas: 2
 
   gitlab-shell:
-    minReplicas: 1
+    minReplicas: 2
     maxReplicas: 2
