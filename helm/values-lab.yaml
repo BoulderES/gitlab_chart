@@ -118,6 +118,8 @@ grafana:
       - grafana-gitlab.lab.myddns.me
 
 gitlab:
+  gitlab-grafana:
+    enable: true
   toolbox:
     replicas: 1
     antiAffinityLabels:
