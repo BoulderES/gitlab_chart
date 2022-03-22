@@ -48,7 +48,7 @@ global:
     allowClusterRoles: true
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
-    domain: public-digital.lab.myddns.me
+    domain: public-digital.lab
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-ingress-settings
   ingress:
