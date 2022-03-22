@@ -78,7 +78,7 @@ nginx-ingress:
 ## https://docs.gitlab.com/charts/installation/deployment.html#redis
 redis:
   install: true
-#  existingSecret: gitlab-redis-secret
+  existingSecret: gitlab-redis
   existingSecretKey: redis-password
   usePasswordFile: true
   cluster:
