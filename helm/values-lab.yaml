@@ -119,7 +119,7 @@ grafana:
 
 gitlab:
   gitlab-grafana:
-    enable: true
+    enabled: true
   toolbox:
     replicas: 1
     antiAffinityLabels:
