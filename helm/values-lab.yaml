@@ -49,17 +49,6 @@ global:
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
     domain: public-digital.lab.myddns.me
-    hostSuffix:
-    https: false
-    externalIP:
-    ssh: ~
-    gitlab: {}
-    minio: {}
-    registry: {}
-    tls: {}
-    smartcard: {}
-    kas: {}
-    pages: {}
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-ingress-settings
   ingress:
