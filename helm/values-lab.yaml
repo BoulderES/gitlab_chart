@@ -33,8 +33,8 @@ global:
     enabled: true
     credentials: {}
 
-  grafana:
-    enabled: true
+#  grafana:
+#    enabled: false
 
   appConfig:
     omniauth:
@@ -104,15 +104,15 @@ gitlab-runner:
   install: false
 
 prometheus:
-  install: true
-  server:
-    resources:
-      limits:
-        cpu: 1000m
-        memory: 2Gi
-      requests:
-        cpu: 500m
-        memory: 512Mi
+  install: false
+#  server:
+#    resources:
+#      limits:
+#        cpu: 1000m
+#        memory: 2Gi
+#      requests:
+#        cpu: 500m
+#        memory: 512Mi
 
 gitlab:
   toolbox:
