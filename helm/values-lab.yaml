@@ -92,9 +92,15 @@ gitlab-runner:
 
 prometheus:
   install: false
-
 shared-secrets:
-  enabled: false
+  enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 50Mi
+    limits:
+      cpu: 100m
+      memory: 100Mi
 
 gitlab:
   toolbox:
