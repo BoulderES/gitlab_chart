@@ -117,7 +117,7 @@ gitlab:
         memory: 500Mi
     persistence:
       enabled: true
-      storageClass: "qnap-nfss"
+      storageClass: "qnap-nfs"
       size: 50Gi
 
   webservice:
