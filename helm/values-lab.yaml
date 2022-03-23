@@ -23,10 +23,8 @@ global:
 
   redis:
     password:
-      enabled: true
-      secret: gitlab-redis-secret
-      key: redis-password
-    host: gitlab-redis-master.gitlab
+      enabled: false
+    host: redis-master.redis
     port: 6379
 
   minio:
@@ -37,6 +35,23 @@ global:
 #    enabled: false
 
   appConfig:
+    lfs:
+      bucket: gitlab-lfs-storage
+      connection: {}
+    artifacts:
+      bucket: gitlab-artifacts-storage
+      connection: {}
+    uploads:
+      bucket: gitlab-uploads-storage
+      connection: {}
+    packages:
+      bucket: gitlab-packages-storage
+      connection: {}
+    backups:
+      bucket: gitlab-backup-storage
+      tmpBucket: gitlab-tmp-storage
+
+
     omniauth:
       enabled: true
       autoSignInWithProvider:
@@ -50,9 +65,9 @@ global:
       externalProviders: []
       allowBypassTwoFactor: []
       providers:
-      - name: 'openid_connect'
-        secret: gitlab-openid-oauth2
-        key: provider
+        - name: 'openid_connect'
+          secret: gitlab-openid-oauth2
+          key: provider
 ## End of global
 
 upgradeCheck:
@@ -65,37 +80,9 @@ nginx-ingress:
   enabled: false
 
 redis:
-  install: true
-  existingSecret: gitlab-redis
-  existingSecretKey: redis-password
-  usePasswordFile: true
-  cluster:
-    enabled: true
-  metrics:
-    enabled: true
-
-## Installation & configuration of stable/prostgresql
-## See requirements.yaml for current version
+  install: false
 postgresql:
-  postgresqlUsername: gitlab
-  postgresqlPostgresPassword: ch4ng3m3
-  postgresqlPassword: ch4ng3m3
-  install: true
-  postgresqlDatabase: gitlabhq_production
-  image:
-    tag: 12.7.0
-  usePasswordFile: true
-  # existingSecret: 'bogus'
-  initdbScriptsConfigMap: 'bogus'
-  master:
-    extraVolumeMounts:
-      - name: custom-init-scripts
-        mountPath: /docker-entrypoint-preinitdb.d/init_revision.sh
-        subPath: init_revision.sh
-    podAnnotations:
-      postgresql.gitlab/init-revision: "1"
-  metrics:
-    enabled: true
+  install: false
 
 registry:
   enabled: false
@@ -105,14 +92,6 @@ gitlab-runner:
 
 prometheus:
   install: false
-#  server:
-#    resources:
-#      limits:
-#        cpu: 1000m
-#        memory: 2Gi
-#      requests:
-#        cpu: 500m
-#        memory: 512Mi
 
 gitlab:
   toolbox:
@@ -136,6 +115,10 @@ gitlab:
       limits:
         cpu: 500m
         memory: 500Mi
+    persistence:
+      enabled: true
+      storageClass: "qnap-nfss"
+      size: 50Gi
 
   webservice:
     minReplicas: 2
