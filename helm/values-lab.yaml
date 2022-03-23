@@ -93,6 +93,9 @@ gitlab-runner:
 prometheus:
   install: false
 
+shared-secrets:
+  enabled: false
+
 gitlab:
   toolbox:
     replicas: 1
