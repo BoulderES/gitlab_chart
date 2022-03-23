@@ -32,7 +32,13 @@ global:
   minio:
     enabled: true
     credentials: {}
-      # secret:
+
+  grafana:
+    install: true
+    ingress:
+      enabled: true
+      hosts:
+        - grafana-gitlab.lab.myddns.me
 
   appConfig:
     omniauth:
@@ -102,7 +108,7 @@ gitlab-runner:
   install: false
 
 prometheus:
-  install: false
+  install: true
   server:
     resources:
       limits:
@@ -112,21 +118,10 @@ prometheus:
         cpu: 500m
         memory: 512Mi
 
-grafana:
-  install: true
-  ingress:
-    enabled: true
-    hosts:
-      - grafana-gitlab.lab.myddns.me
 
 gitlab:
-
-  grafana:
-    install: true
-    ingress:
-      enabled: true
-      hosts:
-        - grafana-gitlab.lab.myddns.me
+  gitlab-grafana:
+    enabled: true
   toolbox:
     replicas: 1
     antiAffinityLabels:
