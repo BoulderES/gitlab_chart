@@ -92,6 +92,7 @@ gitlab-runner:
 
 prometheus:
   install: false
+
 shared-secrets:
   enabled: true
   resources:
