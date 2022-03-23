@@ -102,17 +102,18 @@ gitlab-runner:
   install: false
 
 prometheus:
+  install: false
   server:
     resources:
       limits:
         cpu: 1000m
-        memory: 512Mi
+        memory: 1Gi
       requests:
         cpu: 500m
         memory: 512Mi
 
 grafana:
-  enabled: true
+  install: true
   ingress:
     enabled: true
     hosts:
