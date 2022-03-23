@@ -120,8 +120,13 @@ grafana:
       - grafana-gitlab.lab.myddns.me
 
 gitlab:
-  gitlab-grafana:
-    enabled: true
+
+  grafana:
+    install: true
+    ingress:
+      enabled: true
+      hosts:
+        - grafana-gitlab.lab.myddns.me
   toolbox:
     replicas: 1
     antiAffinityLabels:
