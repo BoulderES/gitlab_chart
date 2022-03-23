@@ -105,13 +105,14 @@ prometheus:
   server:
     resources:
       limits:
-        cpu: 500m
+        cpu: 1000m
         memory: 512Mi
       requests:
         cpu: 500m
         memory: 512Mi
 
 grafana:
+  enabled: true
   ingress:
     enabled: true
     hosts:
