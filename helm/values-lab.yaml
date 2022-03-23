@@ -35,11 +35,6 @@ global:
 
   grafana:
     enabled: true
-    ingress:
-      enabled: false
-      hosts:
-        - grafana.gitlab.public-digital.lab.myddns.me
-        - grafana
 
   appConfig:
     omniauth:
@@ -119,16 +114,7 @@ prometheus:
         cpu: 500m
         memory: 512Mi
 
-gitlab-grafana:
-  ingress:
-    enabled: false
-    hosts:
-      - grafana.gitlab.public-digital.lab.myddns.me
-      - grafana
-
 gitlab:
-  gitlab-grafana:
-    enabled: true
   toolbox:
     replicas: 1
     antiAffinityLabels:
