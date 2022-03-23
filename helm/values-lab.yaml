@@ -36,7 +36,7 @@ global:
   grafana:
     enabled: true
     ingress:
-      enabled: true
+      enabled: false
       hosts:
         - grafana.gitlab.public-digital.lab.myddns.me
         - grafana
@@ -119,6 +119,12 @@ prometheus:
         cpu: 500m
         memory: 512Mi
 
+grafana:
+  ingress:
+    enabled: false
+    hosts:
+      - grafana.gitlab.public-digital.lab.myddns.me
+      - grafana
 
 gitlab:
   gitlab-grafana:
