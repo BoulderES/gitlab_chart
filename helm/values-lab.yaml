@@ -34,7 +34,7 @@ global:
     credentials: {}
 
   grafana:
-    install: true
+    enabled: true
     ingress:
       enabled: true
       hosts:
