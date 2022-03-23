@@ -1,5 +1,7 @@
 global:
   hosts:
+    gitlab:
+      hostnameOverride: public-digital.lab.myddns.me
     domain: public-digital.lab.myddns.me
     https: false
   ingress:
