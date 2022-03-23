@@ -38,8 +38,8 @@ global:
     ingress:
       enabled: true
       hosts:
-        - grafana.public-digital.lab.myddns.me
         - grafana.gitlab.public-digital.lab.myddns.me
+        - grafana
 
   appConfig:
     omniauth:
