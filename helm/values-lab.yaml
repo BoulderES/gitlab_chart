@@ -121,10 +121,10 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 128Mi
-        requests:
           cpu: 100m
+          memory: 50Mi
+        requests:
+          cpu: 50m
           memory: 6M
 
   gitaly:
@@ -138,10 +138,10 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 128Mi
-        requests:
           cpu: 100m
+          memory: 50Mi
+        requests:
+          cpu: 50m
           memory: 6M
     persistence:
       enabled: true
@@ -169,10 +169,10 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 128Mi
-        requests:
           cpu: 100m
+          memory: 50Mi
+        requests:
+          cpu: 50m
           memory: 6M
 
   sidekiq:
@@ -188,10 +188,10 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 128Mi
-        requests:
           cpu: 100m
+          memory: 50Mi
+        requests:
+          cpu: 50m
           memory: 6M
 
   gitlab-shell:
@@ -207,10 +207,10 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 128Mi
-        requests:
           cpu: 100m
+          memory: 50Mi
+        requests:
+          cpu: 50m
           memory: 6M
 
   gitlab-exporter:
@@ -224,8 +224,8 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 128Mi
-        requests:
           cpu: 100m
+          memory: 50Mi
+        requests:
+          cpu: 50m
           memory: 6M
