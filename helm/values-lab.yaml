@@ -118,6 +118,14 @@ gitlab:
       requests:
         cpu: 50m
         memory: 350M
+    init:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 6M
 
   gitaly:
     resources:
@@ -127,6 +135,14 @@ gitlab:
       limits:
         cpu: 500m
         memory: 500Mi
+    init:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 6M
     persistence:
       enabled: true
       storageClass: "qnap-nfs"
@@ -150,6 +166,14 @@ gitlab:
         requests:
           cpu: 100m
           memory: 100M
+    init:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 6M
 
   sidekiq:
     minReplicas: 2
@@ -161,6 +185,14 @@ gitlab:
       requests:
         cpu: 900m
         memory: 1G
+    init:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 6M
 
   gitlab-shell:
     minReplicas: 2
@@ -172,6 +204,14 @@ gitlab:
       requests:
         cpu: 100m
         memory: 6M
+    init:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 6M
 
   gitlab-exporter:
     resources:
@@ -181,3 +221,11 @@ gitlab:
       requests:
         cpu: 75m
         memory: 100M
+    init:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 6M
