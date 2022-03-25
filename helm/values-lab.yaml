@@ -229,3 +229,19 @@ gitlab:
         requests:
           cpu: 50m
           memory: 6M
+  migrations:
+    resources:
+      limits:
+        cpu: 150m
+        memory: 150Mi
+      requests:
+        cpu: 75m
+        memory: 100M
+    init:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 50Mi
+        requests:
+          cpu: 50m
+          memory: 6M
