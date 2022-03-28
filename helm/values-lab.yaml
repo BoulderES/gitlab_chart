@@ -39,16 +39,12 @@ global:
   appConfig:
     lfs:
       bucket: gitlab-lfs-storage
-      connection: {}
     artifacts:
       bucket: gitlab-artifacts-storage
-      connection: {}
     uploads:
       bucket: gitlab-uploads-storage
-      connection: {}
     packages:
       bucket: gitlab-packages-storage
-      connection: {}
     backups:
       bucket: gitlab-backup-storage
       tmpBucket: gitlab-tmp-storage
