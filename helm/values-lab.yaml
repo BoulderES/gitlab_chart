@@ -1,7 +1,6 @@
 global:
   hosts:
     gitlab:
-      url: public-digital.lab.myddns.me
       hostnameOverride: public-digital.lab.myddns.me
     domain: public-digital.lab.myddns.me
     ssh: public-digital.lab.myddns.me
@@ -108,6 +107,7 @@ shared-secrets:
       memory: 100Mi
 
 gitlab:
+  url: public-digital.lab.myddns.me
   toolbox:
     replicas: 1
     antiAffinityLabels:
