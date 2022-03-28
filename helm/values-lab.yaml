@@ -2,7 +2,9 @@ global:
   hosts:
     gitlab:
       hostnameOverride: public-digital.lab.myddns.me
+      name: public-digital.lab.myddns.me
     domain: public-digital.lab.myddns.me
+    ssh: public-digital.lab.myddns.me
     https: false
   ingress:
     configureCertmanager: false
@@ -138,8 +140,8 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 100m
-          memory: 50Mi
+          cpu: 200m
+          memory: 200Mi
         requests:
           cpu: 50m
           memory: 6M
@@ -170,10 +172,10 @@ gitlab:
       resources:
         limits:
           cpu: 100m
-          memory: 50Mi
+          memory: 100Mi
         requests:
           cpu: 50m
-          memory: 6M
+          memory: 50M
 
   sidekiq:
     minReplicas: 2
@@ -188,11 +190,11 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 100m
-          memory: 50Mi
+          cpu: 200m
+          memory: 200Mi
         requests:
           cpu: 50m
-          memory: 6M
+          memory: 100M
 
   gitlab-shell:
     minReplicas: 2
@@ -233,7 +235,7 @@ gitlab:
     resources:
       limits:
         cpu: 150m
-        memory: 150Mi
+        memory: 1Gi
       requests:
         cpu: 75m
         memory: 100M
@@ -241,7 +243,7 @@ gitlab:
       resources:
         limits:
           cpu: 100m
-          memory: 50Mi
+          memory: 150Mi
         requests:
           cpu: 50m
           memory: 6M
