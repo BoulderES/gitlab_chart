@@ -18,7 +18,8 @@ global:
       secret: gitlab-postgresql-secret
       key: postgresql-postgres-password
       file:
-    host: postgres-postgresql-ha-pgpool.postgres
+#    host: postgres-postgresql-ha-pgpool.postgres
+    host: gitlab-postgresql.gitlab
     port: 5432
     username: postgres
     database: gitlabhq_production
@@ -86,7 +87,26 @@ nginx-ingress:
 redis:
   install: false
 postgresql:
-  install: false
+#  install: false
+  install: true
+  postgresqlUsername: gitlab
+  postgresqlPostgresPassword: ch4ng3m3
+  postgresqlPassword: ch4ng3m3
+  postgresqlDatabase: gitlabhq_production
+  image:
+    tag: 12.7.0
+  usePasswordFile: true
+  existingSecret: gitlab-postgresql-secret
+#  initdbScriptsConfigMap: 'bogus'
+  master:
+    extraVolumeMounts:
+      - name: custom-init-scripts
+        mountPath: /docker-entrypoint-preinitdb.d/init_revision.sh
+        subPath: init_revision.sh
+    podAnnotations:
+      postgresql.gitlab/init-revision: "1"
+  metrics:
+    enabled: true
 
 registry:
   enabled: false
