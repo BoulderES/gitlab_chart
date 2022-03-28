@@ -41,16 +41,24 @@ global:
   appConfig:
 #    lfs:
 #      bucket: gitlab-lfs-storage
-#      connection: {}
+#      connection:
+#        secret: icc-un-collective-test
+#        key: connection
 #    artifacts:
 #      bucket: gitlab-artifacts-storage
-#      connection: {}
+#      connection:
+#        secret: icc-un-collective-test
+#        key: connection
 #    uploads:
 #      bucket: gitlab-uploads-storage
-#      connection: {}
+#      connection:
+#        secret: icc-un-collective-test
+#        key: connection
 #    packages:
 #      bucket: gitlab-packages-storage
-#      connection: {}
+#      connection:
+#        secret: icc-un-collective-test
+#        key: connection
 #    backups:
 #      bucket: gitlab-backup-storage
 #      tmpBucket: gitlab-tmp-storage
