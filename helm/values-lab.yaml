@@ -2,7 +2,6 @@ global:
   hosts:
     gitlab:
       hostnameOverride: public-digital.lab.myddns.me
-      name: ""
     domain: public-digital.lab.myddns.me
     ssh: public-digital.lab.myddns.me
     https: false
