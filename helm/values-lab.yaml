@@ -1,8 +1,10 @@
 global:
   hosts:
     gitlab:
+      url: public-digital.lab.myddns.me
       hostnameOverride: public-digital.lab.myddns.me
     domain: public-digital.lab.myddns.me
+    ssh: public-digital.lab.myddns.me
     https: false
   ingress:
     configureCertmanager: false
