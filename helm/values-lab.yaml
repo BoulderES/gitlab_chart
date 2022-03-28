@@ -152,8 +152,6 @@ gitlab:
           memory: 6M
 
   gitaly:
-    registry:
-      enabled: false
     resources:
       requests:
         cpu: 100m
@@ -227,8 +225,6 @@ gitlab:
   gitlab-shell:
     minReplicas: 2
     maxReplicas: 2
-    registry:
-      enabled: false
     resources:
       limits:
         cpu: 200m
@@ -246,8 +242,6 @@ gitlab:
           memory: 6M
 
   gitlab-exporter:
-    registry:
-      enabled: false
     resources:
       limits:
         cpu: 500m
@@ -264,8 +258,6 @@ gitlab:
           cpu: 50m
           memory: 6M
   migrations:
-    registry:
-      enabled: false
     resources:
       limits:
         cpu: 150m
