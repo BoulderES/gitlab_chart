@@ -2,9 +2,7 @@ global:
   hosts:
     gitlab:
       hostnameOverride: public-digital.lab.myddns.me
-      name: public-digital.lab.myddns.me
     domain: public-digital.lab.myddns.me
-    ssh: public-digital.lab.myddns.me
     https: false
   ingress:
     configureCertmanager: false
@@ -39,29 +37,21 @@ global:
 #    enabled: false
 
   appConfig:
-#    lfs:
-#      bucket: gitlab-lfs-storage
-#      connection:
-#        secret: icc-un-collective-test
-#        key: connection
-#    artifacts:
-#      bucket: gitlab-artifacts-storage
-#      connection:
-#        secret: icc-un-collective-test
-#        key: connection
-#    uploads:
-#      bucket: gitlab-uploads-storage
-#      connection:
-#        secret: icc-un-collective-test
-#        key: connection
-#    packages:
-#      bucket: gitlab-packages-storage
-#      connection:
-#        secret: icc-un-collective-test
-#        key: connection
-#    backups:
-#      bucket: gitlab-backup-storage
-#      tmpBucket: gitlab-tmp-storage
+    lfs:
+      bucket: gitlab-lfs-storage
+      connection: {}
+    artifacts:
+      bucket: gitlab-artifacts-storage
+      connection: {}
+    uploads:
+      bucket: gitlab-uploads-storage
+      connection: {}
+    packages:
+      bucket: gitlab-packages-storage
+      connection: {}
+    backups:
+      bucket: gitlab-backup-storage
+      tmpBucket: gitlab-tmp-storage
 
 
     omniauth:
@@ -148,8 +138,8 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 200Mi
+          cpu: 100m
+          memory: 50Mi
         requests:
           cpu: 50m
           memory: 6M
@@ -180,10 +170,10 @@ gitlab:
       resources:
         limits:
           cpu: 100m
-          memory: 100Mi
+          memory: 50Mi
         requests:
           cpu: 50m
-          memory: 50M
+          memory: 6M
 
   sidekiq:
     minReplicas: 2
@@ -198,11 +188,11 @@ gitlab:
     init:
       resources:
         limits:
-          cpu: 200m
-          memory: 200Mi
+          cpu: 100m
+          memory: 50Mi
         requests:
           cpu: 50m
-          memory: 100M
+          memory: 6M
 
   gitlab-shell:
     minReplicas: 2
@@ -243,7 +233,7 @@ gitlab:
     resources:
       limits:
         cpu: 150m
-        memory: 1Gi
+        memory: 150Mi
       requests:
         cpu: 75m
         memory: 100M
@@ -251,7 +241,7 @@ gitlab:
       resources:
         limits:
           cpu: 100m
-          memory: 150Mi
+          memory: 50Mi
         requests:
           cpu: 50m
           memory: 6M
