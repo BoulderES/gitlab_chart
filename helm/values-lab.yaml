@@ -37,19 +37,6 @@ global:
 #    enabled: false
 
   appConfig:
-    lfs:
-      bucket: gitlab-lfs-storage
-    artifacts:
-      bucket: gitlab-artifacts-storage
-    uploads:
-      bucket: gitlab-uploads-storage
-    packages:
-      bucket: gitlab-packages-storage
-    backups:
-      bucket: gitlab-backup-storage
-      tmpBucket: gitlab-tmp-storage
-
-
     omniauth:
       enabled: true
       autoSignInWithProvider:
