@@ -1,11 +1,11 @@
 global:
   hosts:
-    gitlab:
-      hostnameOverride: public-digital.lab.myddns.me
-      name: public-digital.lab.myddns.me
     domain: public-digital.lab.myddns.me
     ssh: public-digital.lab.myddns.me
     https: false
+    gitlab:
+      hostnameOverride: public-digital.lab.myddns.me
+      name: public-digital.lab.myddns.me
   ingress:
     configureCertmanager: false
     class: nginx
@@ -165,8 +165,8 @@ gitlab:
           cpu: 200m
           memory: 200Mi
         requests:
-          cpu: 50m
-          memory: 6M
+          cpu: 100m
+          memory: 100M
     persistence:
       enabled: true
       storageClass: "qnap-nfs"
