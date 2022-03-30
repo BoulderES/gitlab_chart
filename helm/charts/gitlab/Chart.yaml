@@ -1,14 +1,15 @@
 apiVersion: v1
+name: gitlab
+version: 0.1.0
 appVersion: master
-description: Web-based Git-repository manager with wiki and issue-tracking features.
-home: https://about.gitlab.com/
-icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.svg
+description: Web-based Git-repository manager with wiki and issue-tracking
+  features.
 keywords:
 - gitlab
-maintainers:
-- email: support@gitlab.com
-  name: GitLab Inc.
-name: gitlab
+home: https://about.gitlab.com/
+icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.svg
 sources:
 - https://gitlab.com/gitlab-org/charts/gitlab
-version: 0.1.0
+maintainers:
+- name: GitLab Inc.
+  email: support@gitlab.com

@@ -29,7 +29,7 @@ global:
 
   image: {}
     # pullPolicy: IfNotPresent
-  # pullSecrets: []
+    # pullSecrets: []
 
   ## Supplemental Pod labels. Will not be used for selectors.
   pod:
@@ -81,14 +81,14 @@ global:
     ## If allowing shared-secrets generation, this is OPTIONAL.
     license: {}
       # secret: RELEASE-gitlab-license
-    # key: license
+      # key: license
 
   ## Initial root password for this GitLab installation
   ## Secret created according to https://docs.gitlab.com/charts/installation/secrets#initial-root-password
   ## If allowing shared-secrets generation, this is OPTIONAL.
   initialRootPassword: {}
     # secret: RELEASE-gitlab-initial-root-password
-  # key: password
+    # key: password
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-postgresql-settings
   psql:
@@ -102,7 +102,7 @@ global:
       # useSecret:
       # secret:
       # key:
-    # file:
+      # file:
     # host: postgresql.hostedsomewhere.else
     # port: 123
     # username: gitlab
@@ -127,7 +127,7 @@ global:
     enabled: true
     authToken: {}
       # secret:
-    # key:
+      # key:
     # serviceName:
     internal:
       names: [default]
@@ -173,7 +173,7 @@ global:
   minio:
     enabled: true
     credentials: {}
-    # secret:
+      # secret:
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-grafana-integration
   grafana:
@@ -256,7 +256,7 @@ global:
       # historical_data_worker:
       #   cron: "0 12 * * *"
       # loose_foreign_keys_cleanup_worker_cron:
-    #   cron: "*/5 * * * *"
+      #   cron: "*/5 * * * *"
 
     ## https://docs.gitlab.com/charts/charts/globals#content-security-policy
     contentSecurityPolicy:
@@ -285,31 +285,31 @@ global:
       proxy_download: true
       storage_options: {}
         # server_side_encryption:
-      # server_side_encryption_kms_key_id
+        # server_side_encryption_kms_key_id
       connection: {}
         # secret:
-      # key:
+        # key:
     lfs:
       enabled: true
       proxy_download: true
       bucket: git-lfs
       connection: {}
         # secret:
-      # key:
+        # key:
     artifacts:
       enabled: true
       proxy_download: true
       bucket: gitlab-artifacts
       connection: {}
         # secret:
-      # key:
+        # key:
     uploads:
       enabled: true
       proxy_download: true
       bucket: gitlab-uploads
       connection: {}
         # secret:
-      # key:
+        # key:
     packages:
       enabled: true
       proxy_download: true
@@ -341,7 +341,7 @@ global:
       bucket: gitlab-pseudo
       connection: {}
         # secret:
-      # key:
+        # key:
     backups:
       bucket: gitlab-backups
       tmpBucket: tmp
@@ -371,7 +371,7 @@ global:
       deliveryMethod: sidekiq
       authToken: {}
         # secret:
-      # key:
+        # key:
 
     ## https://docs.gitlab.com/charts/charts/gitlab/mailroom/index.html#service-desk-email
     serviceDeskEmail:
@@ -397,7 +397,7 @@ global:
       deliveryMethod: sidekiq
       authToken: {}
         # secret:
-      # key:
+        # key:
 
     ## https://docs.gitlab.com/charts/charts/globals#ldap
     ldap:
@@ -412,7 +412,7 @@ global:
       # key:
       # enabled:
       # externalUrl:
-    # internalUrl:
+      # internalUrl:
 
     ## https://docs.gitlab.com/charts/charts/globals#omniauth
     omniauth:
@@ -449,7 +449,7 @@ global:
 
     # Config that only applies to the defaults on initial install
     initialDefaults: {}
-    # signupEnabled:
+      # signupEnabled:
   ## End of global.appConfig
 
   oauth:
@@ -457,7 +457,7 @@ global:
       # secret:
       # appIdKey:
       # appSecretKey:
-    # redirectUri:
+      # redirectUri:
 
   ## https://docs.gitlab.com/charts/advanced/geo/
   geo:
@@ -503,7 +503,7 @@ global:
     # secret:
     # key:
     hostKeys: {}
-    # secret:
+      # secret:
     ## https://docs.gitlab.com/charts/charts/globals#tcp-proxy-protocol
     tcp:
       proxyProtocol: false
@@ -512,7 +512,7 @@ global:
   ## Secret created according to https://docs.gitlab.com/charts/installation/secrets#gitlab-rails-secret
   ## If allowing shared-secrets generation, this is OPTIONAL.
   railsSecrets: {}
-  # secret:
+    # secret:
 
   ## Rails generic setting, applicable to all Rails-based containers
   rails:
@@ -523,13 +523,13 @@ global:
   registry:
     bucket: registry
     certificate: {}
-    # secret:
+      # secret:
     httpSecret: {}
       # secret:
-    # key:
+      # key:
     notificationSecret: {}
       # secret:
-    # key:
+      # key:
     # https://docs.docker.com/registry/notifications/#configuration
     notifications: {}
       # endpoints:
@@ -545,7 +545,7 @@ global:
       #       SpecificPassword:
       #         secret: gitlab-registry-specific-password
       #         key: password
-    # events: {}
+      # events: {}
 
   pages:
     enabled: false
@@ -566,20 +566,20 @@ global:
       # proxy_download: true
       connection: {}
         # secret:
-      # key:
+        # key:
     apiSecret: {}
       # secret:
-    # key:
+      # key:
     authSecret: {}
       # secret:
-    # key:
+      # key:
 
   ## GitLab Runner
   ## Secret created according to https://docs.gitlab.com/charts/installation/secrets#gitlab-runner-secret
   ## If allowing shared-secrets generation, this is OPTIONAL.
   runner:
     registrationToken: {}
-    # secret:
+      # secret:
 
   ## https://docs.gitlab.com/charts/installation/deployment#outgoing-email
   ## Outgoing email server settings
@@ -700,7 +700,7 @@ upgradeCheck:
     # repository:
     # tag:
     # pullPolicy: IfNotPresent
-  # pullSecrets: []
+    # pullSecrets: []
   securityContext:
     # in alpine/debian/busybox based images, this is `nobody:nogroup`
     runAsUser: 65534
@@ -828,9 +828,9 @@ prometheus:
           relabel_configs:
             - source_labels:
                 [
-                    __meta_kubernetes_namespace,
-                    __meta_kubernetes_service_name,
-                    __meta_kubernetes_endpoint_port_name,
+                  __meta_kubernetes_namespace,
+                  __meta_kubernetes_service_name,
+                  __meta_kubernetes_endpoint_port_name,
                 ]
               action: keep
               regex: default;kubernetes;https
@@ -849,8 +849,8 @@ prometheus:
               regex: (.+)
             - source_labels:
                 [
-                    __address__,
-                    __meta_kubernetes_pod_annotation_gitlab_com_prometheus_port,
+                  __address__,
+                  __meta_kubernetes_pod_annotation_gitlab_com_prometheus_port,
                 ]
               action: replace
               regex: ([^:]+)(?::\d+)?;(\d+)
@@ -912,7 +912,7 @@ prometheus:
           relabel_configs:
             - source_labels:
                 [
-                    __meta_kubernetes_service_annotation_gitlab_com_prometheus_probe,
+                  __meta_kubernetes_service_annotation_gitlab_com_prometheus_probe,
                 ]
               action: keep
               regex: true
