@@ -1,0 +1,45 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: sync-gitlab-cron-job
+  namespace: gitlab
+spec:
+  schedule: {{- if .Values.global.syncCronjob.schedule -}}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: sync-gitlab-runner
+              image: {{- if .Values.global.syncCronjob.image -}}
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: REMOTE_API_URL
+                  value: {{- if .Values.global.syncCronjob.remoteApiUrl -}}
+                - name: ORIGIN_URL
+                  value: {{- if .Values.global.syncCronjob.originUrl -}}
+                - name: ORIGIN_URL_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: gitlab-sync-secret
+                      key: origin_repo_username
+                - name: ORIGIN_URL_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: gitlab-sync-secret
+                      key: origin_repo_password
+                - name: REMOTE_URL
+                  value: {{- if .Values.global.syncCronjob.remoteUrl -}}
+                - name: REMOTE_URL_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: gitlab-sync-secret
+                      key: destination_repo_username
+                - name: REMOTE_URL_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: gitlab-sync-secret
+                      key: destination_repo_password
+
