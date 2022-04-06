@@ -1,6 +1,6 @@
 global:
   syncCronjob:
-    schedule: '*/5 * * * *'
+    schedule: "'*/5 * * * *'"
     image: 'jpgomezivf/python3.8_gitlab_sync:0.1'
     remoteApiUrl: 'icc-un-collective-test.rhone.un-icc.cloud/api/v4/'
     originUrl: 'bitbucket.org'

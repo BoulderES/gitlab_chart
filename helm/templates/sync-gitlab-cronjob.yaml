@@ -5,7 +5,7 @@ metadata:
   name: sync-gitlab-cron-job
   namespace: gitlab
 spec:
-  schedule: '*/5 * * * *'
+  schedule: {{ .Values.global.syncCronjob.schedule }}
   jobTemplate:
     spec:
       template:
