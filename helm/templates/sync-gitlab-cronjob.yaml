@@ -15,6 +15,13 @@ spec:
           - name: sync-gitlab-runner
             image: {{ .Values.global.syncCronjob.image }}
             imagePullPolicy: IfNotPresent
+            resources:
+              requests:
+                cpu: 50m
+                memory: 50Mi
+              limits:
+                cpu: 500m
+                memory: 250Mi
             env:
               - name: REMOTE_API_URL
                 value: {{ .Values.global.syncCronjob.remoteApiUrl }}
