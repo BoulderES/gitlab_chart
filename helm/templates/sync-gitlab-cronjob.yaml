@@ -5,7 +5,7 @@ metadata:
   name: sync-gitlab-cron-job
   namespace: gitlab
 spec:
-  schedule: {{ .Values.global.syncCronjob.schedule }}
+  schedule: {{ $.Values.global.syncCronjob.schedule }}
   jobTemplate:
     spec:
       template:
@@ -13,13 +13,13 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: sync-gitlab-runner
-            image: {{ .Values.global.syncCronjob.image }}
+            image: {{ $.Values.global.syncCronjob.image }}
             imagePullPolicy: IfNotPresent
             env:
               - name: REMOTE_API_URL
-                value: {{ .Values.global.syncCronjob.remoteApiUrl }}
+                value: {{ $.Values.global.syncCronjob.remoteApiUrl }}
               - name: ORIGIN_URL
-                value: {{ .Values.global.syncCronjob.originUrl }}
+                value: {{ $.Values.global.syncCronjob.originUrl }}
               - name: ORIGIN_URL_USER
                 valueFrom:
                   secretKeyRef:
@@ -31,7 +31,7 @@ spec:
                     name: gitlab-sync-secret
                     key: origin_repo_password
               - name: REMOTE_URL
-                value: {{ .Values.global.syncCronjob.remoteUrl }}
+                value: {{ $.Values.global.syncCronjob.remoteUrl }}
               - name: REMOTE_URL_USER
                 valueFrom:
                   secretKeyRef:
