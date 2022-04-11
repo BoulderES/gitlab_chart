@@ -134,6 +134,8 @@ shared-secrets:
       memory: 100Mi
 
 gitlab:
+  serviceAnnotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
   toolbox:
     replicas: 1
     registry:
