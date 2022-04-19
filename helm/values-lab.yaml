@@ -7,7 +7,7 @@ global:
     remoteUrl: 'icc-un-collective-test.rhone.un-icc.cloud'
   hosts:
     domain: public-digital.lab.myddns.me
-    ssh: public-digital-git.lab.myddns.me
+    ssh: public-digital.lab.myddns.me
     https: false
     gitlab:
       hostnameOverride: public-digital.lab.myddns.me
