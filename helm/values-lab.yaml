@@ -89,6 +89,10 @@ certmanager:
 
 nginx-ingress:
   enabled: true
+  controller:
+    replicaCount: 1
+    minAvailable: 1
+    ingressClass: gitlab-nginx
 
 redis:
   install: false
