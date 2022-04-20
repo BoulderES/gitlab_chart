@@ -95,6 +95,14 @@ nginx-ingress:
     ingressClass: gitlab-nginx
     ingressClassResource:
       name: gitlab-nginx
+    publishService:
+      enabled: false
+    metrics:
+      enabled: false
+  defaultBackend:
+    enabled: false
+  serviceAccount:
+    create: false
 
 redis:
   install: false
