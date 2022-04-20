@@ -183,7 +183,7 @@ gitlab:
       ingress:
         annotations:
           nginx.ingress.kubernetes.io/configuration-snippet: | 
-            sub_filter '</head>' ' <style>#login-pane {display: none !important;}#signin-container p.gl-mt-3{display: none;}.login-page .brand-holder{text-align: center;}</style> </head>';
+            sub_filter '</head>' ' <style>#login-pane {display: none !important;}#signin-container p.gl-mt-3{display: none;}.login-page .brand-holder{text-align: center;}a[href="https://about.gitlab.com"]{display: none;}</style> </head>';
     minReplicas: 2
     maxReplicas: 2
     registry:
