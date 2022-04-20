@@ -179,6 +179,10 @@ gitlab:
       size: 50Gi
 
   webservice:
+    global:
+      ingress:
+        annotations:
+          nginx.ingress.kubernetes.io/configuration-snippet: "sub_filter '</head>' ' <style>#login-pane {display: none !important;}#signin-container p.gl-mt-3{display: none;}</style> </head>'";
     minReplicas: 2
     maxReplicas: 2
     registry:
