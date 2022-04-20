@@ -93,6 +93,8 @@ nginx-ingress:
     replicaCount: 1
     minAvailable: 1
     ingressClass: gitlab-nginx
+    ingressClassResource:
+      name: gitlab-nginx
 
 redis:
   install: false
