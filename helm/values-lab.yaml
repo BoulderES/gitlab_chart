@@ -97,10 +97,14 @@ nginx-ingress:
       name: gitlab-nginx
     publishService:
       enabled: false
+    scope:
+      enabled: false
     metrics:
       enabled: false
   defaultBackend:
     enabled: false
+  rbac:
+    create: false
   serviceAccount:
     create: false
 
