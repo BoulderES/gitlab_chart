@@ -104,7 +104,7 @@ nginx-ingress:
   defaultBackend:
     enabled: false
   rbac:
-    create: false
+    create: true
   serviceAccount:
     create: false
 
