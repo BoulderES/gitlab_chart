@@ -88,7 +88,7 @@ certmanager:
   install: false
 
 nginx-ingress:
-  enabled: false
+  enabled: true
 
 redis:
   install: false
