@@ -19,3 +19,7 @@ controller:
   # -- For backwards compatibility with ingress.class annotation, use ingressClass.
   # Algorithm is as follows, first ingressClassName is considered, if not present, controller looks for ingress.class annotation
   ingressClass: gitlab-ingress-nginx
+  service:
+    type: NodePort
+    nodePorts:
+      http: 32307
