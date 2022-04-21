@@ -1,8 +1,9 @@
+---
 controller:
 
   ingressClassResource:
     # -- Name of the ingressClass
-    name: gitlab-nginx-test
+    name: gitlab-ingress-nginx
     # -- Is this ingressClass enabled or not
     enabled: true
     # -- Is this the default ingressClass for the cluster
@@ -17,4 +18,4 @@ controller:
 
   # -- For backwards compatibility with ingress.class annotation, use ingressClass.
   # Algorithm is as follows, first ingressClassName is considered, if not present, controller looks for ingress.class annotation
-  ingressClass: gitlab-nginx-test
+  ingressClass: gitlab-ingress-nginx
