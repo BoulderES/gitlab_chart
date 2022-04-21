@@ -96,13 +96,13 @@ nginx-ingress:
     ingressClassResource:
       name: gitlab-nginx
     publishService:
-      enabled: false
+      enabled: true
     scope:
-      enabled: false
+      enabled: true
     metrics:
-      enabled: false
+      enabled: true
   defaultBackend:
-    enabled: true
+    enabled: false
   rbac:
     create: true
   serviceAccount:
