@@ -89,63 +89,24 @@ certmanager:
 
 nginx-ingress:
   enabled: true
-  tcpExternalConfig: "true"
   controller:
+    replicaCount: 1
+    minAvailable: 1
     ingressClass: gitlab-nginx
-    addHeaders:
-      Referrer-Policy: strict-origin-when-cross-origin
-    config:
-      hsts: "true"
-      hsts-include-subdomains: "false"
-      hsts-max-age: "63072000"
-      server-name-hash-bucket-size: "256"
-      use-http2: "true"
-      ssl-ciphers: "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4"
-      ssl-protocols: "TLSv1.3 TLSv1.2"
-      server-tokens: "false"
-    service:
-      externalTrafficPolicy: "Local"
-    ingressClassByName: false
     ingressClassResource:
       name: gitlab-nginx
-#    ingressClassResource:
-#      name: '{{ include "ingress.class.name" $ }}'
-    resources:
-      requests:
-        cpu: 100m
-        memory: 100Mi
     publishService:
       enabled: true
-    replicaCount: 2
-    minAvailable: 1
     scope:
       enabled: true
     metrics:
       enabled: true
-      service:
-        annotations:
-          gitlab.com/prometheus_scrape: "true"
-          gitlab.com/prometheus_port: "10254"
-          prometheus.io/scrape: "true"
-          prometheus.io/port: "10254"
-    admissionWebhooks:
-      enabled: false
   defaultBackend:
-    enabled: true
-    minAvailable: 1
-    replicaCount: 1
-    resources:
-      requests:
-        cpu: 5m
-        memory: 5Mi
+    enabled: false
   rbac:
     create: true
-    # Needed for k8s 1.20 and 1.21
-    # https://github.com/kubernetes/ingress-nginx/issues/7510
-    # https://github.com/kubernetes/ingress-nginx/issues/7519
-    scope: false
   serviceAccount:
-    create: true
+    create: false
 
 redis:
   install: false
