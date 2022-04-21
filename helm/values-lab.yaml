@@ -91,6 +91,7 @@ nginx-ingress:
   enabled: true
   tcpExternalConfig: "true"
   controller:
+    ingressClass: gitlab-nginx
     addHeaders:
       Referrer-Policy: strict-origin-when-cross-origin
     config:
