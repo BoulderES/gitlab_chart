@@ -14,7 +14,7 @@ global:
       name: public-digital.lab.myddns.me
   ingress:
     configureCertmanager: false
-    class: nginx
+    class: gitlab-nginx
     tls:
       enabled: false
 
@@ -252,9 +252,9 @@ gitlab:
           memory: 100M
 
   gitlab-shell:
-    service:
-      annotations:
-        service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+#    service:
+#      annotations:
+#        service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
     minReplicas: 2
     maxReplicas: 2
     resources:
