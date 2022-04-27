@@ -4,8 +4,6 @@ metadata:
   annotations:
   labels:
     app: webservice
-    app.kubernetes.io/instance: gitlab
-    release: gitlab
   name: gitlab-webservice-default-nodeport
   namespace: gitlab
 spec:
