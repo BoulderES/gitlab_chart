@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: interface-customization-pod
+  labels:
+    app: interface-customization
+  namespace: gitlab
+spec:
+  containers:
+    - name: nginx-interface-customization
+      image: nginx-interface-customization-test:latest
+      imagePullPolicy: IfNotPresent
+      resources:
+        requests:
+          cpu: 50m
+          memory: 50Mi
+        limits:
+          cpu: 500m
+          memory: 250Mi
+      ports:
+      - containerPort: 80
+

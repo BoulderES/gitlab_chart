@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: webservice
+    app.kubernetes.io/instance: gitlab
+    release: gitlab
+  name: gitlab-webservice-default-nodeport
+  namespace: gitlab
+spec:
+  ports:
+  - name: http-webservice
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: interface-customization-pod
+  type: NodePort
