@@ -14,7 +14,7 @@ global:
       name: public-digital.lab.myddns.me
   ingress:
     configureCertmanager: false
-    class: gitlab-nginx
+    class: nginx
     tls:
       enabled: false
 
@@ -88,25 +88,7 @@ certmanager:
   install: false
 
 nginx-ingress:
-  enabled: true
-  controller:
-    replicaCount: 1
-    minAvailable: 1
-    ingressClass: gitlab-nginx
-    ingressClassResource:
-      name: gitlab-nginx
-    publishService:
-      enabled: true
-    scope:
-      enabled: true
-    metrics:
-      enabled: true
-  defaultBackend:
-    enabled: false
-  rbac:
-    create: true
-  serviceAccount:
-    create: false
+  enabled: false
 
 redis:
   install: false
