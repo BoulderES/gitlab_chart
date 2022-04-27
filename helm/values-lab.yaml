@@ -13,7 +13,7 @@ global:
       hostnameOverride: public-digital.lab.myddns.me
       name: public-digital.lab.myddns.me
   ingress:
-    enabled: false
+    enabled: true
     configureCertmanager: false
     class: nginx
     tls:
