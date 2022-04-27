@@ -15,5 +15,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: interface-customization-pod
+    app: interface-customization
   type: NodePort
