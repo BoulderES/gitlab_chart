@@ -184,7 +184,7 @@ gitlab:
       ingress:
         annotations:
           nginx.ingress.kubernetes.io/configuration-snippet: |
-            sub_filter '</head>' ' <script>window.onload = function() {if(document.location.pathname == "/users/sign_in"){document.querySelector('.gl-w-full').submit();}};</script> <style>#login-pane {display: none !important;}#signin-container p.gl-mt-3{display: none;}.login-page .brand-holder{text-align: center;}a[href="https://about.gitlab.com"]{display: none;}</style> </head>';
+            sub_filter '</head>' ' <script>window.onload = function() {if(document.location.pathname == "/users/sign_in"){document.querySelector(".gl-w-full").submit();}};</script> <style>#login-pane {display: none !important;}#signin-container p.gl-mt-3{display: none;}.login-page .brand-holder{text-align: center;}a[href="https://about.gitlab.com"]{display: none;}</style> </head>';
     minReplicas: 2
     maxReplicas: 2
     registry:
