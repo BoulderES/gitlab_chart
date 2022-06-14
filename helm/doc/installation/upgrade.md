@@ -101,6 +101,26 @@ The steps have been documented in the [5.0 upgrade steps](#upgrade-steps-for-50-
 As part of the `4.0.0` release of this chart, we upgraded the bundled [PostgreSQL chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) from `7.7.0` to `8.9.4`. This is not a drop in replacement. Manual steps need to be performed to upgrade the database.
 The steps have been documented in the [4.0 upgrade steps](#upgrade-steps-for-40-release).
 
+## Upgrade steps for the 5.10 release
+
+Prior to upgrading to `5.10` you need to first upgrade to `5.9` (GitLab `14.9`), and wait for all [batched background migrations](https://docs.gitlab.com/ee/update/#batched-background-migrations) to complete. `5.10` (GitLab `14.10`) includes a [migration that will fail](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/82176) if the background migration from the previous release is not completed.
+
+## Upgrade steps for 5.9 release
+
+### Sidekiq pod never becomes ready
+
+Upgrading to `5.9.x` may lead to a situation where the Sidekiq pod does not become ready. The pod starts and appears to work properly but never listens on the `3807`, the default metrics endpoint port (`metrics.port`). As a result, the Sidekiq pod is not considered to be ready. 
+
+This can be resolved from the **Admin Area**: 
+
+  1. On the top bar, select **Menu > Admin**.
+  1. On the left sidebar, select **Settings > Metrics and profiling**.
+  1. Expand  **Metrics - Prometheus**.
+  1. Ensure that **Enable health and performance metrics endpoint** is enabled.
+  1. Restart the affected pods.
+
+There is additional conversation about this scenario in a [closed issue](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/3198). 
+
 ## Upgrade steps for 5.5 release
 
 The `task-runner` chart [was renamed](https://gitlab.com/gitlab-org/charts/gitlab/-/merge_requests/2099/diffs)
