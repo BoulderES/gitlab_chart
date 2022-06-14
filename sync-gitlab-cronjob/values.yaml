@@ -1,0 +1,6 @@
+syncCronjob:
+  schedule: "'*/5 * * * *'"
+  image: 'registry.unicc.org/cps/sync-repositories-app-test:latest'
+  remoteApiUrl: 'icc-un-collective-test.rhone.un-icc.cloud/api/v4/'
+  originUrl: 'bitbucket.org'
+  remoteUrl: 'icc-un-collective-test.rhone.un-icc.cloud'
