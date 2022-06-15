@@ -115,7 +115,6 @@ postgresql:
   metrics:
     enabled: true
   persistence:
-    storageClass: CUSTOM_STORAGE_CLASS_NAME
     size: 18Gi
 
 registry:
